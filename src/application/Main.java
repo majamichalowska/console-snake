@@ -35,7 +35,7 @@ public class Main {
 
         // Input from player
         Scanner scanner = new Scanner(System.in);
-        char input;
+        String input;
 
         // The game logic starts here
         boolean isRunning = true;
@@ -43,19 +43,22 @@ public class Main {
         while (isRunning) {
             screen.PrintScreen();
             // Get input from player and do something
-            switch (input = scanner.nextLine().charAt(0)) {
-                case 'a':
-                    snake.moveLeft(screen, snake);
-                    break;
-                case 'd':
-                    snake.moveRight(screen, snake);
-                    break;
-                case 'w':
-                    snake.moveUp(screen, snake);
-                    break;
-                case 's':
-                    snake.moveDown(screen, snake);
-                    break; // bb
+            input = scanner.nextLine();
+            if (!input.isEmpty()) {
+                switch (input.charAt(0)) {
+                    case 'a':
+                        snake.moveLeft(screen, snake);
+                        break;
+                    case 'd':
+                        snake.moveRight(screen, snake);
+                        break;
+                    case 'w':
+                        snake.moveUp(screen, snake);
+                        break;
+                    case 's':
+                        snake.moveDown(screen, snake);
+                        break;
+                }
             }
         }
     }

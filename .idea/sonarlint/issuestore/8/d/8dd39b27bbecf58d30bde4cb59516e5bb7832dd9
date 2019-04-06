@@ -1,0 +1,5 @@
+
+P"squid:SwitchLastCaseIsDefaultCheck.""Add a default case to this switch.(ÉáÀ²
+^$squid:AssignmentInSubExpressionCheck.".Extract the assignment out of this expression.(ÉáÀ²
+Ssquid:S2589+"7Remove this expression which always evaluates to "true"(ÓŠ¢ùÿÿÿÿ
+Psquid:S1854."9Remove this useless assignment to local variable "input".(ÉáÀ²
