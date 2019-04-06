@@ -56,8 +56,8 @@ public class Main {
                 case 's':
                     snake.moveDown(screen, snake);
                     break;
-                    default:
-                        System.out.println("podales zły znak");
+                default:
+                   System.out.println("podales zły znak");
             }
         }
     }
