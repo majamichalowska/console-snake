@@ -55,7 +55,7 @@ public class Main {
                     break;
                 case 's':
                     snake.moveDown(screen, snake);
-                    break;
+                    break; // bb
             }
         }
     }
