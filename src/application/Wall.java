@@ -2,12 +2,12 @@ package application;
 
 public class Wall extends GameObject {
 
-	public Wall(GameScreen screen) {
-		setSymbol('#', screen);
+	public Wall() {
+		setSymbol('#');
 	}
 
-	public Wall(char symbol, GameScreen screen) {
-		setSymbol(symbol, screen);
+	public Wall(char symbol) {
+		setSymbol(symbol);
 	}
 
 	// Add horizontal line of walls

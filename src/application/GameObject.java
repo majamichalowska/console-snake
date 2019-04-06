@@ -2,7 +2,6 @@ package application;
 
 public class GameObject {
 
-    private int width, height;
     private int x, y;
     private char symbol;
 
@@ -21,20 +20,15 @@ public class GameObject {
 
     // Setters
     public void setX(int newLocation) {
-        if (newLocation >= 0 && newLocation < this.width) {
-            this.x = newLocation;
-        }
+        this.x = newLocation;
     }
 
     public void setY(int newLocation) {
-        if (newLocation >= 0 && newLocation < this.height) {
-            this.y = newLocation;
-        }
+        this.y = newLocation;
     }
 
-    public void setSymbol(char newSymbol, GameScreen screen) {
+    public void setSymbol(char newSymbol) {
         this.symbol = newSymbol;
-        this.width = screen.getScreenWidth();
-        this.height = screen.getScreenHeight();
     }
 }
+

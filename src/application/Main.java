@@ -17,7 +17,7 @@ public class Main {
         screen.InitScreen();
 
         // Init walls
-        Wall wall = new Wall('#', screen);
+        Wall wall = new Wall('#');
         wall.addWallsRow(screen, wall, 0); // First row
         wall.addWallsRow(screen, wall, screen.getScreenHeight() - 1); // Last
         // row
@@ -25,13 +25,13 @@ public class Main {
         wall.addWallsColumn(screen, wall, screen.getScreenWidth() - 1); // Last
         // column
 
-        // Init food
-        Food food = new Food('*', screen);
-        food.addRandomFood(screen);
-
         // Init player
-        Snake snake = new Snake('@', SNAKE_STARTING_X, SNAKE_STARTING_Y, screen, food.getSymbol());
+        Snake snake = new Snake('@', SNAKE_STARTING_X, SNAKE_STARTING_Y);
         screen.setObjectOnLocation(snake, snake.getX(), snake.getY());
+
+        // Init food
+        Food food = new Food('*');
+        food.addRandomFood(screen, food);
 
         // Input from player
         Scanner scanner = new Scanner(System.in);
@@ -43,32 +43,21 @@ public class Main {
         while (isRunning) {
             screen.PrintScreen();
             // Get input from player and do something
-            try {
-                input = scanner.nextLine().charAt(0);
-                boolean foodEaten = false;
-
-                switch (input) {
-                    case 'a':
-                        foodEaten = snake.moveLeft(screen);
-                        break;
-                    case 'd':
-                        foodEaten = snake.moveRight(screen);
-                        break;
-                    case 'w':
-                        foodEaten = snake.moveUp(screen);
-                        break;
-                    case 's':
-                        foodEaten = snake.moveDown(screen);
-                        break;
-                }
-
-                if(foodEaten) {
-                    food.addRandomFood(screen);
-                    screen.setScore(screen.getScore() + 1);
-                }
-            } catch (StringIndexOutOfBoundsException exception) {
-				// do nothing, we are on the wall
+            switch (input = scanner.nextLine().charAt(0)) {
+                case 'a':
+                    snake.moveLeft(screen, snake);
+                    break;
+                case 'd':
+                    snake.moveRight(screen, snake);
+                    break;
+                case 'w':
+                    snake.moveUp(screen, snake);
+                    break;
+                case 's':
+                    snake.moveDown(screen, snake);
+                    break;
             }
         }
     }
+
 }
