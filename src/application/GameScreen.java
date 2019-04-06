@@ -32,7 +32,16 @@ public class GameScreen {
 
     //Screen clear location
     public void ClearScreenLocation(int x, int y) {
-        this.screenMatrix[y][x] = '.';
+        if(y == 0 || x == 0 || x == (this.width-1) || y == (this.height -1))
+        {
+        this.screenMatrix[y][x] = '#';
+        }
+
+        else
+        {
+            this.screenMatrix[y][x] = '.';
+        }
+
     }
 
     // Getters

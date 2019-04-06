@@ -55,7 +55,9 @@ public class Main {
                     break;
                 case 's':
                     snake.moveDown(screen, snake);
-                    break; // bb
+                    break;
+                default:
+                   System.out.println("podales zły znak");
             }
         }
     }
